@@ -1,0 +1,25 @@
+{
+   "type": "postgres",
+   "host": "freedbinstance.clg06jmlkfyq.us-east-2.rds.amazonaws.com",
+   "port": 5432,
+   "username": "munawarkhanaws6656",
+   "password": "mkaws6656pass",
+   "database": "infanalytics_test",
+   "synchronize": false,
+   "logging": true,
+   "migrationsTableName": "pg_migrations",
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

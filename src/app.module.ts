@@ -2,6 +2,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Connection } from "typeorm";
+import { ConfigModule } from "@nestjs/config";
 
 // configurations
 import { getDBConfigurations } from "./app.config";
@@ -16,10 +17,14 @@ import { AppController } from "./app.controller";
 
 // providers
 import { AppService } from "./app.service";
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
+
     // when no configurations provided, it will be loaded from ./ormconfig.json
     TypeOrmModule.forRoot(getDBConfigurations()),
 
